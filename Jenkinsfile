@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CI') {
             steps {
-                sh 'zip -r apache-html-$BUILD_NUMBER.zip *'
+                sh 'zip -r apache-html-$BUILD_NUMBER.zip . -i *'
                 sh 'aws s3 cp apache-html-$BUILD_NUMBER.zip s3://artifactory-cicd-html/'
             }
         }
